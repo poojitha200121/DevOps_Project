@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 20px 40px;
+            margin: 20px;
+            font-size: 20px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .button:active {
+            background-color: #004080;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="fetchData()">Hello World</button>
+        <button class="button" onclick="helloWorldV2()">Hello World Version 2</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/hello');
+                const data = await response.json();
+                document.getElementById('result').innerText = data.content;
+            } catch (error) {
+                document.getElementById('result').innerText = 'Error fetching data';
+            }
+        }
+
+        function helloWorldV2() {
+            // Modify this function to display "Hello World Version 2" in the #result div
+            document.getElementById('result').innerText = 'Hello World Version 2';
+        }
+    </script>
+</body>
+</html>
