@@ -11,6 +11,11 @@ public class HelloWorldController {
         return new Message("Hello World");
     }
 
+    @GetMapping("/hello-v2")
+    public Message helloWorldv2() {
+        return new Message("Hello World Version 2");
+    }
+
     public static class Message {
         private String content;
 

@@ -57,10 +57,14 @@
                 document.getElementById('result').innerText = 'Error fetching data';
             }
         }
-
-        function helloWorldV2() {
-            // Modify this function to display "Hello World Version 2" in the #result div
-            document.getElementById('result').innerText = 'Hello World Version 2';
+        async function helloWorldV2() {
+            try {
+                const response = await fetch('/hello-v2');
+                const data = await response.json();
+                document.getElementById('result').innerText = data.content;
+            } catch (error) {
+                document.getElementById('result').innerText = 'Error fetching data';
+            }
         }
     </script>
 </body>
